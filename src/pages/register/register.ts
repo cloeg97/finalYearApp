@@ -16,6 +16,9 @@ export class RegisterPage {
 
 	@ViewChild('username') user;
 	@ViewChild('password') password;
+  @ViewChild('firstname') first;
+  @ViewChild('lastname') last;
+  @ViewChild('email') email;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -25,6 +28,6 @@ export class RegisterPage {
   }
 
   registerUser() {
-  	console.log('Would register user with ', this.user.value, this.password.value);
+  	console.log('Would register user with ', this.user.value, this.password.value, this.first.value, this.last.value, this.email.value);
   }
 }

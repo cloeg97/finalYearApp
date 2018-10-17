@@ -16,15 +16,43 @@
 
   <ion-list>
 
-  <ion-item>
-  	<ion-label floating>Username</ion-label>
-  	<ion-input type="text" #username></ion-input>
-  </ion-item>
-  <ion-item>
-    
-  	<ion-label floating>Password</ion-label>
-  	<ion-input type="password" #password></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label floating>First Name</ion-label>
+      <ion-input type="text" #firstname></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Last Name</ion-label>
+      <ion-input type="text" #lastname></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="email" #email></ion-input>
+    </ion-item>
+
+    <ion-item>
+    	<ion-label floating>Username</ion-label>
+    	<ion-input type="text" #username></ion-input>
+    </ion-item>
+
+    <ion-item>
+    	<ion-label floating>Password</ion-label>
+    	<ion-input type="password" #password></ion-input>
+    </ion-item>
+
+    <ion-list radio-group [(ngModel)]="userType">
+      <ion-list-header>User Type</ion-list-header>
+      <ion-item>
+        <ion-label>Customer</ion-label>
+        <ion-radio value="customer" checked></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Shop Owner</ion-label>
+        <ion-radio value="shopOwner"></ion-radio>
+      </ion-item>
+    </ion-list>
+
 
   </ion-list>
 
