@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
+import { WelcomePage } from '../welcome/welcome';
+
 /**
  * Generated class for the LoginPage page.
  *
@@ -26,6 +28,7 @@ export class LoginPage {
 
   signIn() {
   	console.log('Would sign in with ', this.user.value, this.password.value);
+    this.navCtrl.push(WelcomePage);
   }
 
 }

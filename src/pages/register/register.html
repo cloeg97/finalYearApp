@@ -41,37 +41,35 @@
     	<ion-input type="password" #password></ion-input>
     </ion-item>
 
-    <ion-list radio-group [(ngModel)]="userType">
-      <ion-list-header>User Type</ion-list-header>
+    <ion-item>
+      <ion-label>Type of User</ion-label>
+      <ion-select [(ngModel)]="userType" interface="popover" (ionChange)="checkUserType(userType)">
+        <ion-option value="cust" selected (click)="show()">Customer</ion-option>
+        <ion-option value="shop" (click)="hide()">Shop Owner</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <div *ngIf="hideMe">
       <ion-item>
-        <ion-label>Customer</ion-label>
-        <ion-radio value="customer" checked></ion-radio>
+        <ion-label floating>Company Name</ion-label>
+        <ion-input type="text" #companyname></ion-input>
       </ion-item>
+
       <ion-item>
-        <ion-label>Shop Owner</ion-label>
-        <ion-radio value="shopOwner"></ion-radio>
+        <ion-label floating>Address</ion-label>
+        <ion-input type="text" #address></ion-input>
       </ion-item>
-    </ion-list>
 
-    <ion-item>
-      <ion-label floating>Company Name</ion-label>
-      <ion-input type="text" #companyname></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label floating>Address</ion-label>
-      <ion-input type="text" #address></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label floating>Bank Details</ion-label>
-      <ion-input type="text" #bankdetails></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-label floating>Bank Details</ion-label>
+        <ion-input type="text" #bankdetails></ion-input>
+      </ion-item>
+    </div>
 
   </ion-list>
 
 <div padding>
-	<button block ion-button (click)="registerUser()">Sign In</button>
+	<button block ion-button (click)="registerUser()">Register</button>
 </div>
 
 </ion-content>
