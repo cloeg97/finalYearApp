@@ -25,6 +25,8 @@ export class RegisterPage {
   @ViewChild('bankdetails') bank;
   @ViewChild('hideMe') shophide;
 
+  hideMe: boolean;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -33,11 +35,11 @@ export class RegisterPage {
   }
 
   hide(){
-    this.shophide = true;
+    this.hideMe = false;
   }
 
   show() {
-    this.shophide = false;
+    this.hideMe = true;
   }
 
   checkUserType(userType) {
