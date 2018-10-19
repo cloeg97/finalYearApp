@@ -23,7 +23,6 @@ export class RegisterPage {
   @ViewChild('companyname') company;
   @ViewChild('address') address;
   @ViewChild('bankdetails') bank;
-  @ViewChild('hideMe') shophide;
 
   hideMe: boolean;
 
@@ -54,6 +53,6 @@ export class RegisterPage {
   registerUser() {
   	console.log('Would register user with ', this.user.value, this.password.value, this.first.value, this.last.value, this.email.value);
     this.navCtrl.push(WelcomePage);
-    console.log('If this user is a shop owner, they would register with ', this.company.value, this.address.value, this.bank.value);
+    //console.log('If this user is a shop owner, they would register with ', this.company.value, this.address.value, this.bank.value);
   }
 }
