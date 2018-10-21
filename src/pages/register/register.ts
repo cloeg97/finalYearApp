@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
+import * as firebase from 'firebase';
+import { AngularFireModule } from 'angularfire2';
+import {AngularFireAuth} from 'angularfire2/auth';
 import { WelcomePage } from '../welcome/welcome';
 /**
  * Generated class for the RegisterPage page.
@@ -12,6 +14,8 @@ import { WelcomePage } from '../welcome/welcome';
 @Component({
   selector: 'page-register',
   templateUrl: 'register.html',
+  providers: [AngularFireAuth]
+
 })
 export class RegisterPage {
 
@@ -26,12 +30,18 @@ export class RegisterPage {
 
   hideMe: boolean;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(  private AFauth: AngularFireAuth,
+  public navCtrl: NavController, public navParams: NavParams, 
+  ) {
+      //
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
   }
+
+  //var that = this;
+
 
   hide(){
     this.hideMe = false;
@@ -49,10 +59,35 @@ export class RegisterPage {
       this.hide(); //hide
     }
   }
+  
 
-  registerUser() {
-  	console.log('Would register user with ', this.user.value, this.password.value, this.first.value, this.last.value, this.email.value);
-    this.navCtrl.push(WelcomePage);
-    //console.log('If this user is a shop owner, they would register with ', this.company.value, this.address.value, this.bank.value);
+  registerUser(){
+  try{
+   const result = this.AFauth.auth.createUserWithEmailAndPassword(this.user.email, this.user.password);
+   console.log(result);
   }
+  catch(e){
+    console.error(e);
+    }
+  }
+ // doSignup(){
+//
+  //  var   account = {
+    //  first_name: this.first_name,
+      //last_name: this.last_name || '',
+      //email: this.email,
+      //user: this.user, 
+      //password: this.password,
+//
+   // };
+
+
+
+ // registerUser() {
+ //	console.log('Would register user with ', this.user.value, this.password.value, this.first.value, this.last.value, this.email.value);
+  //  this.navCtrl.push(WelcomePage);
+    //console.log('If this user is a shop owner, they would register with ', //this.company.value, this.address.value, this.bank.value);
+  //}
+//}
 }
+
