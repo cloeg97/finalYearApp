@@ -14,5 +14,13 @@
 
 
 <ion-content padding>
+	<ion-item>
+		<ion-label> Enter Data </ion-label>
+		<ion-input [(ngModel)]= "dataToAdd"> </ion-input>
+	</ion-item>
+	<button ion-button (click)="addData()"> </button>
+	<ion-item *ngFor="'et item of items">
+		{{item}}
+	</ion-item>
 
 </ion-content>
