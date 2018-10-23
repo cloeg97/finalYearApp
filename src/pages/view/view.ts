@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import {AngularFireDatabase} from 'angularfire2';
+
  
 /**
  * Generated class for the ViewPage page.
@@ -15,23 +15,12 @@ import {AngularFireDatabase} from 'angularfire2';
 })
 export class ViewPage {
 
-	items;
-	dataToAdd;
-  constructor(public navCtrl: NavController,public afd: AngularFireDatabase, public navParams: NavParams) {
-  	this.getDataFromFireBase();
+  constructor(public navCtrl: NavController,public navParams: NavParams) {
+ 
   }
 
-  	getDataFromFireBase(){
-  		this.afd.list('Test/').valueChanges().subscribe(
-  			data => {
-  				console.log(data)
-  				this.items = data
-  			});
-  	}
-
-  	addData(){
-  		this.afd.list('/Test').push(this.dataToAdd);
-  	}
+ 
+  
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ViewPage');

@@ -3,7 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import * as firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
 import {AngularFireAuth} from 'angularfire2/auth';
-import { User} from "../../models/user";
+import { User} from "../../models/User";
 
 import { WelcomePage } from '../welcome/welcome';
 
@@ -18,6 +18,7 @@ import { WelcomePage } from '../welcome/welcome';
   selector: 'page-login',
   templateUrl: 'login.html',
   providers: [AngularFireAuth]
+
 })
 export class LoginPage {
 	
