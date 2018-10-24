@@ -1,5 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import * as firebase from 'firebase';
+import { AngularFireModule } from 'angularfire2';
+import {AngularFireAuth} from 'angularfire2/auth';
+import { User } from '../../models/user.interface';
 
 import { WelcomePage } from '../welcome/welcome';
 
@@ -13,13 +17,18 @@ import { WelcomePage } from '../welcome/welcome';
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
+  providers: [AngularFireAuth]
+
 })
 export class LoginPage {
 	
-	@ViewChild('username') user;
+	@ViewChild('email') email;
 	@ViewChild('password') password;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  user = {} as User; 
+
+  constructor(private AFauth: AngularFireAuth,
+  public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -27,8 +36,14 @@ export class LoginPage {
   }
 
   signIn() {
-  	console.log('Would sign in with ', this.user.value, this.password.value);
+  try {
+   const result =  this.AFauth.auth.signInWithEmailAndPassword(this.user.email, this.user.password);
+  	//console.log('Would sign in with ', this.user.email, this.password.value);
     this.navCtrl.push(WelcomePage);
+    }
+    catch(e){
+      console.log(e);
+    }
   }
 
 }
