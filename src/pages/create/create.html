@@ -18,23 +18,23 @@
 
 		<ion-item>
 			<ion-label floating>Amount</ion-label>
-		  	<ion-input type="number" #amount></ion-input>
+		  	<ion-input type="number" [(ngModel)]="transaction.transactionAmount" #amount></ion-input>
 		</ion-item>
 		  
 		<ion-item>
 		  	<ion-label floating>Currency</ion-label>
-		  	<ion-input type="text" #currency></ion-input>
+		  	<ion-input type="text" [(ngModel)]="transaction.transactionCurrency" #currency></ion-input>
 		</ion-item>
 
 		<ion-item>
 		  	<ion-label floating>Receiver Name</ion-label>
-		  	<ion-input type="text" #receiver></ion-input>
+		  	<ion-input type="text" [(ngModel)]="transaction.transactionReceiver" #receiver></ion-input>
 		</ion-item>
 
 	</ion-list>
 
 	<div padding>
-		<button block ion-button (click)="sendMoney()">Send Money</button>
+		<button block ion-button (click)="sendMoney(transaction)">Send Money</button>
 	</div>
 
 </ion-content>

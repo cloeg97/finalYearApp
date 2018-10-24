@@ -18,6 +18,7 @@ import { UsersserviceProvider } from '../providers/usersservice/usersservice';
 import { AngularFireModule } from 'angularfire2';
 import {FIREBASE_CONGFIG} from "./app.firebase.config"
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 
 // Initialize Firebase
@@ -45,7 +46,8 @@ firebase.initializeApp(config);
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(FIREBASE_CONGFIG)
+    AngularFireModule.initializeApp(FIREBASE_CONGFIG),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
