@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
- 
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database'; 
+import { transaction } from '../../models/transaction/transaction.interface';
+
 /**
  * Generated class for the ViewPage page.
  *
@@ -15,15 +17,13 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class ViewPage {
 
-  constructor(public navCtrl: NavController,public navParams: NavParams) {
- 
-  }
+  transactionRef$: AngularFireList<transaction>
 
- 
-  
+  constructor(public navCtrl: NavController,public navParams: NavParams, private database: AngularFireDatabase) {
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ViewPage');
+  	this.transactionRef$ = this.database.list('transaction');
+
+
   }
 
 }

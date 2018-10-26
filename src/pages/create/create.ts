@@ -21,6 +21,7 @@ export class CreatePage {
 	@ViewChild('receiver') receiver;
 
   transaction = {} as transaction
+  
 
   transactionRef$: AngularFireList<transaction>
 
