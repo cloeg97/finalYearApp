@@ -12,6 +12,8 @@ import { CreatePage } from '../pages/create/create';
 import { ViewPage } from '../pages/view/view';
 import { RequestPage } from '../pages/request/request';
 import { WelcomePage } from '../pages/welcome/welcome';
+import { ConfirmRequestPage } from '../pages/confirm-request/confirm-request';
+
 //added imports 19/10/18
 import * as firebase from 'firebase';
 import { UsersserviceProvider } from '../providers/usersservice/usersservice';
@@ -41,7 +43,8 @@ firebase.initializeApp(config);
     CreatePage,
     ViewPage,
     RequestPage,
-    WelcomePage
+    WelcomePage,
+    ConfirmRequestPage
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,8 @@ firebase.initializeApp(config);
     CreatePage,
     ViewPage,
     RequestPage,
-    WelcomePage
+    WelcomePage,
+    ConfirmRequestPage
   ],
   providers: [
     StatusBar,

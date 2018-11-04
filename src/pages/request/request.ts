@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { ConfirmRequestPage } from '../../pages/confirm-request/confirm-request';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database'; 
+import { transaction } from '../../models/transaction/transaction.interface';
+import { Observable } from 'rxjs/Observable';
 
 /**
  * Generated class for the RequestPage page.
@@ -13,11 +17,16 @@ import { NavController, NavParams, AlertController } from 'ionic-angular';
   templateUrl: 'request.html',
 })
 export class RequestPage {
+  
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
+
+  transactionRef$: Observable<any[]>;
+  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private database: AngularFireDatabase) {
+    this.transactionRef$ = this.database.list('transaction').valueChanges();;
   }
 
-  confirm() {
+  confirmTransaction(transaction: transaction) {
+    this.navCtrl.push(ConfirmRequestPage, {transactionID: transaction.$key});
   	/*If userType = shop
 		  this.presentConfirm();
 	  Else 

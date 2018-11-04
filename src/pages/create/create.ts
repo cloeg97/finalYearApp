@@ -2,7 +2,9 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { transaction } from '../../models/transaction/transaction.interface';
-import { AngularFireDatabase, AngularFireList} from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+
+
 
 /**
  * Generated class for the CreatePage page.
@@ -25,6 +27,7 @@ export class CreatePage {
 
   transactionRef$: AngularFireList<transaction>
 
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private database: AngularFireDatabase) {
     this.transactionRef$ = this.database.list('transaction');
   }
@@ -34,7 +37,8 @@ export class CreatePage {
     this.transactionRef$.push({
       transactionAmount: Number(this.transaction.transactionAmount),
       transactionCurrency: this.transaction.transactionCurrency,
-      transactionReceiver: this.transaction.transactionReceiver
+      transactionReceiver: this.transaction.transactionReceiver,
+      transactionConfirmationFlag: false
     });
     //Reset Create Transaction
     this.transaction = {} as transaction;
