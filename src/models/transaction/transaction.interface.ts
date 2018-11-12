@@ -1,5 +1,5 @@
 export interface transaction {
-	$key?: string;
+	$key?: string,
 	transactionAmount: number;
 	transactionCurrency: string;
 	transactionReceiver: string;
